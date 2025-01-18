@@ -4,4 +4,5 @@ export { default as Mail } from './Mail.astro';
 export { default as AboutMe } from './AboutMe.astro';
 export { default as Proyects } from './Proyects.astro';
 export { default as File } from './File.astro';
+export { default as Link } from './Link.astro';
 // Añade aquí más exportaciones según sea necesario

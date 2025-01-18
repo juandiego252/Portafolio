@@ -1,7 +1,6 @@
 ---
-import Footer from "./Footer.astro";
-import { NextJS, Tailwind, React } from "./icons/projects-icons";
-
+import Card from "./Card.astro";
+import { NextJS, Tailwind, React, NodeJS } from "./icons/projects-icons";
 
 const TAGS = {
   NEXT: {
@@ -19,26 +18,41 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  NODE: {
+    name: "Node.js",
+    class: "bg-gray-200 text-black",
+    icon: NodeJS,
+  },
 };
 const PROJECTS = [
   {
-    title: "Icons - Libraty",
-    description: "Libreria de iconos SVG para tus proyectos",
+    title: "Icons - Library",
+    description:
+      "Mollit cupidatat nulla sit irure fugiat enim sit ipsum. Lorem qui consectetur fugiat nisi duis non nulla enim eiusmod ad laborum. Voluptate culpa ipsum laborum magna eiusmod cillum nostrud ex officia. Commodo ex tempor cillum incididunt amet.",
     link: "https://tabler.io/icons",
     github: "https://github.com/tabler/tabler-icons",
     image: "/assets/projects-images/svgProjectOne.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
   },
+  {
+    title: "AdventJS",
+    description:
+      "Mollit cupidatat nulla sit irure fugiat enim sit ipsum. Lorem qui consectetur fugiat nisi duis non nulla enim eiusmod ad laborum. Voluptate culpa ipsum laborum magna eiusmod cillum nostrud ex officia. Commodo ex tempor cillum incididunt amet.",
+    github: "https://github.com/tabler/tabler-icons",
+    link: "https://adventjs.dev",
+    image: "/assets/projects-images/svgProjectTwo.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.NODE],
+  },
 ];
 ---
 
-{
+<!-- {
   PROJECTS.map(({ title, description, image, tags }) => (
     <article>
       <h3 class="text-2xl font-semibold text-blue-200 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <img
-        class="rounded shadow-2xl shadow-white/35"
+        class="rounded shadow-2xl shadow-white/20"
         src={image}
         alt={`Captura del proyecto ${title}`}
       />
@@ -56,4 +70,18 @@ const PROJECTS = [
       </ul>
     </article>
   ))
-}
+} -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {
+    PROJECTS.map(({ title, description, image, tags, link, github }) => (
+      <Card
+        title={title}
+        description={description}
+        image={image}
+        tags={tags}
+        link={link}
+        github={github}
+      />
+    ))
+  }
+</div>
