@@ -1,6 +1,12 @@
 ---
 import Card from "./Card.astro";
-import { NextJS, Tailwind, React, NodeJS } from "./icons/projects-icons";
+import {
+  NextJS,
+  Tailwind,
+  React,
+  NodeJS,
+  AspNet,
+} from "./icons/projects-icons";
 
 const TAGS = {
   NEXT: {
@@ -23,6 +29,11 @@ const TAGS = {
     class: "bg-gray-200 text-black",
     icon: NodeJS,
   },
+  ASPNET: {
+    name: "ASP.NET",
+    class: "bg-gray-100/20 text-white",
+    icon: AspNet,
+  },
 };
 const PROJECTS = [
   {
@@ -32,7 +43,7 @@ const PROJECTS = [
     link: "https://tabler.io/icons",
     github: "https://github.com/tabler/tabler-icons",
     image: "/assets/projects-images/svgProjectOne.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.ASPNET],
   },
   {
     title: "AdventJS",
