@@ -6,4 +6,5 @@ export { default as Proyects } from './Proyects.astro';
 export { default as File } from './File.astro';
 export { default as Link } from './Link.astro';
 export { default as BriefCase } from './BriefCase.astro';
-// Añade aquí más exportaciones según sea necesario
+
+
