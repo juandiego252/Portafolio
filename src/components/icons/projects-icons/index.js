@@ -4,3 +4,5 @@ export { default as React } from './React.astro';
 export { default as NodeJS } from './NodeJS.astro';
 export { default as AspNet } from './AspNet.astro';
 export { default as MongoDB } from './MongoDB.astro';
+export { default as Express } from './Express.astro';
+export { default as Cloudinary } from './Cloudinary.astro';

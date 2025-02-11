@@ -7,6 +7,8 @@ import {
   NodeJS,
   AspNet,
   MongoDB,
+  Express,
+  Cloudinary,
 } from "./icons/projects-icons";
 
 const TAGS = {
@@ -27,7 +29,7 @@ const TAGS = {
   },
   NODE: {
     name: "Node.js",
-    class: "bg-gray-200 text-black",
+    class: "bg-black/40 text-white",
     icon: NodeJS,
   },
   ASPNET: {
@@ -40,6 +42,16 @@ const TAGS = {
     class: "bg-[#1e3137] text-white",
     icon: MongoDB,
   },
+  Express: {
+    name: "Express",
+    class: "bg-gray-200 text-black",
+    icon: Express,
+  },
+  Cloudinary: {
+    name: "Cloudinary",
+    class: "bg-[#414c9a] text-white",
+    icon: Cloudinary,
+  },
 };
 const PROJECTS = [
   {
@@ -49,7 +61,14 @@ const PROJECTS = [
     link: "https://tabler.io/icons",
     github: "https://github.com/juandiego252/WallPapers-App.git",
     image: "/assets/projects-images/svgWallpapersApp.jpeg",
-    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.MongoDB],
+    tags: [
+      TAGS.REACT,
+      TAGS.TAILWIND,
+      TAGS.MongoDB,
+      TAGS.Express,
+      TAGS.NODE,
+      TAGS.Cloudinary,
+    ],
   },
   {
     title: "AdventJS",
