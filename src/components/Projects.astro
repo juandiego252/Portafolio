@@ -6,6 +6,7 @@ import {
   React,
   NodeJS,
   AspNet,
+  MongoDB,
 } from "./icons/projects-icons";
 
 const TAGS = {
@@ -34,16 +35,21 @@ const TAGS = {
     class: "bg-gray-100/20 text-white",
     icon: AspNet,
   },
+  MongoDB: {
+    name: "Mongo DB",
+    class: "bg-[#1e3137] text-white",
+    icon: MongoDB,
+  },
 };
 const PROJECTS = [
   {
-    title: "Icons - Library",
+    title: "Wallpapers - App",
     description:
-      "Mollit cupidatat nulla sit irure fugiat enim sit ipsum. Lorem qui consectetur fugiat nisi duis non nulla enim eiusmod ad laborum. Voluptate culpa ipsum laborum magna eiusmod cillum nostrud ex officia. Commodo ex tempor cillum incididunt amet.",
+      "Wallpapers App es una aplicación web diseñada para ofrecer una experiencia fluida y atractiva al buscar y descargar wallpapers de alta calidad. Con un diseño moderno y una interfaz intuitiva, los usuarios pueden explorar una amplia variedad de fondos de pantalla organizados en categorías.",
     link: "https://tabler.io/icons",
-    github: "https://github.com/tabler/tabler-icons",
-    image: "/assets/projects-images/svgProjectOne.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.ASPNET],
+    github: "https://github.com/juandiego252/WallPapers-App.git",
+    image: "/assets/projects-images/svgWallpapersApp.jpeg",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.MongoDB],
   },
   {
     title: "AdventJS",
