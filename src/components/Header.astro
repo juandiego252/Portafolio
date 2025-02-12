@@ -37,7 +37,7 @@ const navItems = [
     {
       navItems.map(({ title, label, url }) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-[#c2ff52]"
+          class="relative block px-2 py-2 transition hover:text-[#c2ff52] [&.active]:text-[#c2ff52]"
           aria-label={label}
           href={url}
         >
@@ -50,43 +50,43 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("section[data-section]");
     const navItems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: any[]) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        if (!id) return;
+
+        const navItem = document.querySelector(
+          `header nav a[aria-label="${id}"]`,
+        );
+
         if (entry.isIntersecting) {
+          // Remove active class from all nav items
           navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-[#c2ff52]");
-            } else {
-              item.classList.remove("text-[#c2ff52]");
-            }
+            item.classList.remove("text-[#c2ff52]");
+            item.classList.remove("active");
           });
+
+          // Add active class to current nav item
+          navItem?.classList.add("text-[#c2ff52]");
+          navItem?.classList.add("active");
         }
       });
     };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.4,
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: 0.2,
     });
 
     sections.forEach((section) => {
       observer.observe(section);
     });
 
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-      }
-    };
+    return () => observer.disconnect();
   });
 </script>
 <style>
