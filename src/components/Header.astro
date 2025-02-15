@@ -12,8 +12,8 @@ const navItems = [
   },
   {
     title: "Sobre mí",
-    label: "sobre-mí",
-    url: "/#sobre-mí",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
   },
 ];
 ---
@@ -40,43 +40,49 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll("[data-section]");
     const navItems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: any[]) => {
+    // Funcion para actualizar la navegacion
+    const updateNavigation = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-[#c2ff52]");
-            } else {
-              item.classList.remove("text-[#c2ff52]");
-            }
-          });
+          // Remover la clase activa de todos los items
+          navItems.forEach((item) => item.classList.remove("text-[#c2ff52]"));
+
+          // Obtener el item activo
+          const activeId = entry.target.getAttribute("data-section");
+          const activeNavItem = document.querySelector(
+            `header nav a[aria-label=${activeId}]`,
+          );
+          activeNavItem?.classList.add("text-[#c2ff52]");
         }
       });
     };
 
-    const observer = new IntersectionObserver(callback, {
+    // Configuracion del IntersectionObserver
+    const observer = new IntersectionObserver(updateNavigation, {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
+      rootMargin: "-50% 0px",
+      threshold: 0.1,
     });
 
-    sections.forEach((section) => {
-      observer.observe(section);
+    // Observar cada seccion
+    sections.forEach((section) => observer.observe(section));
+
+    // Manejar Clicks en los links de la navegacion
+    navItems.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = item.getAttribute("aria-label");
+        const targetSection = document.querySelector(
+          `[data-section=${targetId}]`,
+        );
+        targetSection?.scrollIntoView({ behavior: "smooth" });
+      });
     });
 
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-      }
-    };
+    return () => observer.disconnect();
   });
 </script>
 <style>
