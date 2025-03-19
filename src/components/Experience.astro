@@ -2,23 +2,23 @@
 import ExperienceItem from "./ExperienceItem.astro";
 
 const experience = [
-    {
-        date: "Enero 2024 - Junio 2024",
-        title: "Pasantia en Desarrollo de Software",
-        company: "Clear Minds Consultores",
-        description:
-            "Desarrollo de aplicaciones móviles con tecnologías como React Native, Node.js, Express.js, entre otras y tutor en la escuela de programación de la empresa.",
-    },
-
+  {
+    date: "Enero 2024 - Junio 2024",
+    title: "Pasantia en Desarrollo de Software",
+    company: "Clear Minds Consultores",
+    description:
+      "Desarrollo de aplicaciones móviles con tecnologías como React Native, Node.js, Express.js, entre otras y tutor en la escuela de programación de la empresa.",
+    link: "https://clearminds-it.com/",
+  },
 ];
 ---
 
 <ol class="relative mt-16 border-s border-gray-700">
-    {
-        experience.map((experience) => (
-            <li class="">
-                <ExperienceItem {...experience} />
-            </li>
-        ))
-    }
+  {
+    experience.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
 </ol>

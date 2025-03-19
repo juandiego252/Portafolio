@@ -6,3 +6,5 @@ export { default as AspNet } from './AspNet.astro';
 export { default as MongoDB } from './MongoDB.astro';
 export { default as Express } from './Express.astro';
 export { default as Cloudinary } from './Cloudinary.astro';
+export { default as Redis } from './Redis.astro';
+export { default as SqlServer } from './SqlServer.astro';

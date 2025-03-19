@@ -9,6 +9,8 @@ import {
   MongoDB,
   Express,
   Cloudinary,
+  Redis,
+  SqlServer,
 } from "./icons/projects-icons";
 
 const TAGS = {
@@ -23,7 +25,7 @@ const TAGS = {
     icon: React,
   },
   TAILWIND: {
-    name: "TailwindCSS",
+    name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
@@ -38,7 +40,7 @@ const TAGS = {
     icon: AspNet,
   },
   MongoDB: {
-    name: "Mongo DB",
+    name: "MongoDB",
     class: "bg-[#1e3137] text-white",
     icon: MongoDB,
   },
@@ -49,35 +51,36 @@ const TAGS = {
   },
   Cloudinary: {
     name: "Cloudinary",
-    class: "bg-[#414c9a] text-white",
+    class: "bg-white text-[#384cc4]",
     icon: Cloudinary,
+  },
+  Redis: {
+    name: "Redis",
+    class: "bg-white text-black",
+    icon: Redis,
+  },
+  SqlServer: {
+    name: "SQL",
+    class: "bg-stone-50 text-black",
+    icon: SqlServer,
   },
 };
 const PROJECTS = [
   {
     title: "Wallpapers - App",
-    description:
-      "Wallpapers App es una aplicación web diseñada para ofrecer una experiencia fluida y atractiva al buscar y descargar wallpapers de alta calidad. Con un diseño moderno y una interfaz intuitiva, los usuarios pueden explorar una amplia variedad de fondos de pantalla organizados en categorías.",
+    description: "📱 Minimalist Collection of iPhone Wallpapers",
     link: "https://tabler.io/icons",
     github: "https://github.com/juandiego252/WallPapers-App.git",
     image: "/assets/projects-images/svgWallpapersApp.jpeg",
-    tags: [
-      TAGS.REACT,
-      TAGS.TAILWIND,
-      TAGS.MongoDB,
-      TAGS.Express,
-      TAGS.NODE,
-      TAGS.Cloudinary,
-    ],
+    tags: [TAGS.REACT, TAGS.MongoDB, TAGS.Express, TAGS.Cloudinary],
   },
   {
-    title: "AdventJS",
-    description:
-      "Mollit cupidatat nulla sit irure fugiat enim sit ipsum. Lorem qui consectetur fugiat nisi duis non nulla enim eiusmod ad laborum. Voluptate culpa ipsum laborum magna eiusmod cillum nostrud ex officia. Commodo ex tempor cillum incididunt amet.",
+    title: "URL Shortener",
+    description: "🌱 An open-source URL shortener.",
     github: "https://github.com/tabler/tabler-icons",
     link: "https://adventjs.dev",
     image: "/assets/projects-images/svgProjectTwo.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT, TAGS.NODE],
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.ASPNET, TAGS.Redis, TAGS.SqlServer],
   },
 ];
 ---
@@ -107,7 +110,7 @@ const PROJECTS = [
     </article>
   ))
 } -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 gap-3 md:grid-cols-2">
   {
     PROJECTS.map(({ title, description, image, tags, link, github }) => (
       <Card

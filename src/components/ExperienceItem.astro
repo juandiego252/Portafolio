@@ -1,35 +1,46 @@
 ---
+import { ArrowUpRight } from "./icons";
+
 interface Props {
-    title: string;
-    company: string;
-    description: string;
-    link?: string;
-    date: string;
+  title: string;
+  company: string;
+  description: string;
+  link?: string;
+  date: string;
 }
 
 const { company, date, description, title, link } = Astro.props;
 ---
 
 <div
-    class="relative mx-12 pb-12 grid before:absolute before:left-1/2 before:block before:h-full before:border-l-2 before:border-black/20 before:-translate-x-1/2 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
+  class="relative mx-12 pb-12 grid before:absolute before:left-1/2 before:block before:h-full before:border-l-2 before:border-black/20 before:-translate-x-1/2 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
 >
-    <div class="relative pb-12 md:col-span-2">
-        <div class="sticky top-0">
-            <span
-                class="text-[#d0ff0d] -left-[56px] absolute rounded-full text-5xl"
-                >&bull;</span
-            >
+  <div class="relative pb-12 md:col-span-2">
+    <div class="sticky top-0">
+      <span class="text-[#d0ff0d] -left-[56px] absolute rounded-full text-5xl"
+        >&bull;</span
+      >
 
-            <h3 class="text-xl font-bold text-[#c2ff52]">{title}</h3>
-            <h4 class="font-semibold text-xl text-white">
-                {company}
-            </h4>
-            <time class="p-0 m-0 text-sm text-white/80">{date}</time>
-        </div>
+      <h3 class="text-xl font-bold text-[#c2ff52]">{title}</h3>
+      <h4 class="font-semibold text-xl text-white">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener"
+          class="group flex w-max items-center text-pretty text-sm text-neutral-200 transition-colors duration-150 hover:text-gray-500"
+        >
+          <span>{company}</span>
+          <ArrowUpRight
+            class="size-5 ml-1 duration-150 group-hover:translate-x-[1.5px]"
+          />
+        </a>
+      </h4>
+      <time class="p-0 m-0 text-sm text-white/80">{date}</time>
     </div>
-    <div
-        class="relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3 text-justify"
-    >
-        {description}
-    </div>
+  </div>
+  <div
+    class="relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3 text-justify"
+  >
+    {description}
+  </div>
 </div>
