@@ -11,7 +11,8 @@ npm create astro@latest -- --template basics
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vercel</title><path d="m12 1.608 12 20.784H0Z"/></svg>
+![Static Badge](https://img.shields.io/badge/:badgeContent?logo=vercel)
+
 
 ## 🚀 Project Structure
 
