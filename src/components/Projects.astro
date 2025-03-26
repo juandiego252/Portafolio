@@ -71,16 +71,19 @@ const PROJECTS = [
     description: "📱 Minimalist Collection of iPhone Wallpapers",
     link: "https://tabler.io/icons",
     github: "https://github.com/juandiego252/WallPapers-App.git",
-    image: "/assets/projects-images/svgWallpapersApp.jpeg",
+    image: "/assets/projects-images/wallpaper.svg",
     tags: [TAGS.REACT, TAGS.MongoDB, TAGS.Express, TAGS.Cloudinary],
+    fullstack: true,
   },
   {
     title: "URL Shortener",
     description: "🌱 An open-source URL shortener.",
-    github: "https://github.com/tabler/tabler-icons",
-    link: "https://adventjs.dev",
-    image: "/assets/projects-images/svgProjectTwo.webp",
+    github: "https://github.com/juandiego252/URLShortenerApp.git",
+    link: "https://url-shorten-app-three.vercel.app/",
+    image: "/assets/projects-images/link.svg",
     tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.ASPNET, TAGS.Redis, TAGS.SqlServer],
+    updated: true,
+    fullstack: true,
   },
 ];
 ---
@@ -112,7 +115,7 @@ const PROJECTS = [
 } -->
 <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
   {
-    PROJECTS.map(({ title, description, image, tags, link, github }) => (
+    PROJECTS.map(({ title, description, image, tags, link, github, updated, fullstack }) => (
       <Card
         title={title}
         description={description}
@@ -120,6 +123,8 @@ const PROJECTS = [
         tags={tags}
         link={link}
         github={github}
+        updated={updated}
+        fullstack={fullstack}
       />
     ))
   }

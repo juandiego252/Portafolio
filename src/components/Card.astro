@@ -11,6 +11,7 @@ export interface Props {
   github?: string;
   latest?: boolean;
   updated?: boolean;
+  fullstack?: boolean;
 }
 
 const {
@@ -22,13 +23,14 @@ const {
   github,
   latest = false,
   updated = false,
+  fullstack = false,
 } = Astro.props;
 ---
 
 <div
   role="contentinfo"
   id="project-card"
-  class="relative flex flex-col rounded-md border-[1px] border-neutral-800 px-3 py-4 shadow-sm w-full h-full"
+  class="relative flex flex-col rounded-md border-[1px] border-neutral-600 px-3 py-4 shadow-sm w-full h-full"
 >
   <!-- Hover effect elements -->
   <input
@@ -67,10 +69,19 @@ const {
       </div>
       <div class="flex items-center gap-2">
         {
-          (latest || updated) && (
-            <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-              {latest ? "latest" : "updated"}
-            </span>
+          (latest || updated || fullstack) && (
+            <div class="flex items-center gap-1.5">
+              {fullstack && (
+                <span class="animate-shine cursor-default inline-flex items-center justify-center rounded-full border-neutral-800 bg-[linear-gradient(110deg,#171717,45%,#262626,55%,#171717)] bg-[length:200%_100%] px-2 py-0.5 text-[10px] font-medium text-neutral-200 transition-colors">
+                  FullStack
+                </span>
+              )}
+              {(latest || updated) && (
+                <span class="animate-shine cursor-default inline-flex items-center justify-center rounded-full border-neutral-800 bg-[linear-gradient(110deg,#171717,45%,#262626,55%,#171717)] bg-[length:200%_100%] px-2 py-0.5 text-[10px] font-medium text-neutral-200 transition-colors">
+                  {latest ? "latest" : "Updated"}
+                </span>
+              )}
+            </div>
           )
         }
         {
