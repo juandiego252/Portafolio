@@ -1,12 +1,13 @@
 ---
-import { GitHub, ArrowUpRight } from "./icons";
-import Projects from "./Projects.astro";
+import { technologies } from "../data/technologies";
+import type { Stack } from "../types/projects.type";
+import { GitHub, ArrowUpRight } from "../icons";
 
 export interface Props {
   title: string;
   description: string;
   image: string;
-  tags: { name: string; class?: string; icon: any }[];
+  tags: Stack[];
   link: string;
   github?: string;
   latest?: boolean;
@@ -30,7 +31,7 @@ const {
 <div
   role="contentinfo"
   id="project-card"
-  class="relative flex flex-col rounded-md border-[1px] border-neutral-600 px-3 py-4 shadow-sm w-full h-full"
+  class="relative flex flex-col rounded-md border-[1px] border-neutral-600 px-3 py-4 shadow-sm w-full h-full "
 >
   <!-- Hover effect elements -->
   <input
@@ -104,16 +105,22 @@ const {
     <p class="truncate text-sm text-neutral-400">{description}</p>
 
     <!-- Tags -->
-    <div class="flex items-center space-x-1 overflow-y-auto">
+    <div class="flex items-center space-x-1 overflow-auto">
       {
-        tags.map((tag) => (
-          <span
-            class={`flex items-center gap-2 px-2 py-1 text-xs rounded-full bg-[#232323] text-[#CECECE] border border-[#282828]`}
-          >
-            <tag.icon class="w-3.5 h-3.5 flex-shrink-0" />
-            <span>{tag.name}</span>
-          </span>
-        ))
+        tags.map((tag) => {
+          const tech = technologies.find((t) => t.stack === tag);
+          const Icon = tech?.icon;
+          return (
+            <span
+              class={
+                "flex items-center gap-2 px-2 py-1 rounded-full bg-[#232323] border border-[#282828]"
+              }
+            >
+              {Icon && <Icon class="w-3.5 h-3.5 flex-shrink-0" />}
+              <span class="text-[#CECECE] text-xs">{tag}</span>
+            </span>
+          );
+        })
       }
     </div>
   </div>

@@ -1,15 +1,18 @@
 ---
-import { ArrowUpRight } from "./icons";
+import { ArrowUpRight } from "../icons";
 
 interface Props {
-  title: string;
+  role: string;
+  aboutRole: string;
   company: string;
-  description: string;
-  link?: string;
-  date: string;
+  companyUrl: string;
+  startDate: string;
+  endDate: string;
+  latest: boolean;
 }
 
-const { company, date, description, title, link } = Astro.props;
+const { role, aboutRole, company, companyUrl, startDate, endDate, latest } =
+  Astro.props;
 ---
 
 <div
@@ -21,10 +24,10 @@ const { company, date, description, title, link } = Astro.props;
         >&bull;</span
       >
 
-      <h3 class="text-xl font-bold text-[#d0ff0d]">{title}</h3>
+      <h3 class="text-xl font-bold text-[#d0ff0d]">{role}</h3>
       <h4 class="font-semibold text-xl text-white">
         <a
-          href={link}
+          href={companyUrl}
           target="_blank"
           rel="noopener"
           class="group flex w-max items-center text-pretty text-sm text-neutral-200 transition-colors duration-150 hover:text-gray-500"
@@ -35,12 +38,12 @@ const { company, date, description, title, link } = Astro.props;
           />
         </a>
       </h4>
-      <time class="p-0 m-0 text-sm text-white/80">{date}</time>
+      <time class="p-0 m-0 text-sm text-white/80">{startDate} - {endDate}</time>
     </div>
   </div>
   <div
     class="relative flex flex-col gap-2 pb-4 text-gray-300 md:col-span-3 text-justify"
   >
-    {description}
+    {aboutRole}
   </div>
 </div>
