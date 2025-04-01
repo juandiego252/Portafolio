@@ -11,58 +11,63 @@ import {
   Cloudinary,
   Redis,
   SqlServer,
+  OpenIA,
+  NestJS,
+  Gemini,
 } from "./icons/projects-icons";
 
 const TAGS = {
   NEXT: {
     name: "Next.js",
-    class: "bg-black text-white",
     icon: NextJS,
   },
   REACT: {
     name: "React",
-    class: "bg-black text-white",
     icon: React,
   },
   TAILWIND: {
-    name: "Tailwind",
-    class: "bg-[#003159] text-white",
+    name: "Tailwind", 
     icon: Tailwind,
   },
   NODE: {
     name: "Node.js",
-    class: "bg-black/40 text-white",
     icon: NodeJS,
   },
   ASPNET: {
     name: "ASP.NET",
-    class: "bg-gray-100/20 text-white",
     icon: AspNet,
   },
   MongoDB: {
     name: "MongoDB",
-    class: "bg-[#1e3137] text-white",
     icon: MongoDB,
   },
   Express: {
     name: "Express",
-    class: "bg-gray-200 text-black",
     icon: Express,
   },
   Cloudinary: {
     name: "Cloudinary",
-    class: "bg-white text-[#384cc4]",
     icon: Cloudinary,
   },
   Redis: {
     name: "Redis",
-    class: "bg-white text-black",
     icon: Redis,
   },
   SqlServer: {
     name: "SQL",
-    class: "bg-stone-50 text-black",
     icon: SqlServer,
+  },
+  NestJS: {
+    name: "NestJS",
+    icon: NestJS,
+  },
+  OpenIA: {
+    name: "OpenAI",
+    icon: OpenIA,
+  },
+  Gemini: {
+    name: "Gemini",
+    icon: Gemini,
   },
 };
 const PROJECTS = [
@@ -85,47 +90,42 @@ const PROJECTS = [
     updated: true,
     fullstack: true,
   },
+  {
+    title: "Penguin GPT",
+    description: "🐧Application with AI for different tasks.",
+    github: "https://github.com/juandiego252/ReactGTP-Project.git",
+    link: "https://url-shorten-app-three.vercel.app/",
+    image: "/assets/projects-images/PenguinGPT.svg",
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NestJS, TAGS.OpenIA, TAGS.Gemini],
+    fullstack: true,
+  },
 ];
 ---
 
-<!-- {
-  PROJECTS.map(({ title, description, image, tags }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-blue-200 mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <img
-        class="rounded shadow-2xl shadow-white/20"
-        src={image}
-        alt={`Captura del proyecto ${title}`}
-      />
-      <ul class="flex flex-row mb-2 gap-x-2 mt-2">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-            >
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </article>
-  ))
-} -->
 <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
   {
-    PROJECTS.map(({ title, description, image, tags, link, github, updated, fullstack }) => (
-      <Card
-        title={title}
-        description={description}
-        image={image}
-        tags={tags}
-        link={link}
-        github={github}
-        updated={updated}
-        fullstack={fullstack}
-      />
-    ))
+    PROJECTS.map(
+      ({
+        title,
+        description,
+        image,
+        tags,
+        link,
+        github,
+        updated,
+        fullstack,
+      }) => (
+        <Card
+          title={title}
+          description={description}
+          image={image}
+          tags={tags}
+          link={link}
+          github={github}
+          updated={updated}
+          fullstack={fullstack}
+        />
+      ),
+    )
   }
 </div>

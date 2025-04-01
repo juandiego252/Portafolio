@@ -8,3 +8,6 @@ export { default as Express } from './Express.astro';
 export { default as Cloudinary } from './Cloudinary.astro';
 export { default as Redis } from './Redis.astro';
 export { default as SqlServer } from './SqlServer.astro';
+export { default as NestJS } from './NestJS.astro';
+export { default as OpenIA } from './OpenIA.astro';
+export { default as Gemini } from './Gemini.astro';

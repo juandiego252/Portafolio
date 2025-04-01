@@ -6,7 +6,7 @@ export interface Props {
   title: string;
   description: string;
   image: string;
-  tags: { name: string; class: string; icon: any }[];
+  tags: { name: string; class?: string; icon: any }[];
   link: string;
   github?: string;
   latest?: boolean;
@@ -108,7 +108,7 @@ const {
       {
         tags.map((tag) => (
           <span
-            class={`flex items-center gap-2 px-2 py-1 text-xs rounded-full ${tag.class}`}
+            class={`flex items-center gap-2 px-2 py-1 text-xs rounded-full bg-[#232323] text-[#CECECE] border border-[#282828]`}
           >
             <tag.icon class="w-3.5 h-3.5 flex-shrink-0" />
             <span>{tag.name}</span>

@@ -7,5 +7,6 @@ export { default as File } from './File.astro';
 export { default as Link } from './Link.astro';
 export { default as BriefCase } from './BriefCase.astro';
 export { default as ArrowUpRight } from './ArrowUpRight.astro';
+export { default as UserBolt } from './UserBolt.astro';
 
 
