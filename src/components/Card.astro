@@ -31,7 +31,7 @@ const {
 <div
   role="contentinfo"
   id="project-card"
-  class="relative flex flex-col rounded-md border-[1px] border-neutral-600 px-3 py-4 shadow-sm w-full h-full "
+  class="relative flex flex-col rounded-md border-[1px] border-neutral-600 px-3 py-4 shadow-sm w-full h-full"
 >
   <!-- Hover effect elements -->
   <input
@@ -105,7 +105,7 @@ const {
     <p class="truncate text-sm text-neutral-400">{description}</p>
 
     <!-- Tags -->
-    <div class="flex items-center space-x-1 overflow-auto">
+    <div class="flex flex-wrap items-center gap-1 overflow-auto mt-auto pt-3 max-h-[80px]">
       {
         tags.map((tag) => {
           const tech = technologies.find((t) => t.stack === tag);
@@ -113,7 +113,7 @@ const {
           return (
             <span
               class={
-                "flex items-center gap-2 px-2 py-1 rounded-full bg-[#232323] border border-[#282828]"
+                "flex items-center gap-1 px-2 py-1 rounded-full bg-[#232323] border border-[#282828] text-xs"
               }
             >
               {Icon && <Icon class="w-3.5 h-3.5 flex-shrink-0" />}
