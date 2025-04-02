@@ -2,13 +2,15 @@
 import Badge from "./Badge.astro";
 import { GitHub, LinkedIn, Mail, File } from "../icons";
 import SocialPill from "./SocialPill.astro";
+import juanPhoto from "../images/juan-photo.png";
+import { Image } from "astro:assets";
 ---
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4">
-    <img
-      class="rounded-full size-16 shadow-lg"
-      src="/public/assets/projects-images/juan-photo.png"
+    <Image
+      class="rounded-full size-28 md:size-32 shadow-lg border-2 border-[#c2ff52]/30 hover:scale-105 transition-transform duration-300"
+      src={juanPhoto}
       alt="juand-photo"
     />
     <a
@@ -21,15 +23,16 @@ import SocialPill from "./SocialPill.astro";
     </a>
   </div>
 
-  <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-    Juan Diego
-  </h1>
-  <p
-    class="mt-6 text-xl [&>strong]:text-purple-500 [&>strong]:font-semibold text-gray-300 text-pretty"
+  <article
+    class="py-4 prose-invert prose-a:font-normal prose-a:decoration-neutral-500 prose-a:decoration-dotted prose-a:underline-offset-[5px] prose-a:opacity-80"
   >
-    Desarrollador FullStack con conocimientos en <strong> C# .NET </strong>
-    JavaScript / TypeScript y React, Quito, Ecuador 🟡🔵🔴
-  </p>
+    <p class="leading-loose">
+      {`I'm`}
+      <span class="font-bold tracking-tight">Juan Diego</span>, a fullstack web
+      developer from Quito Ecuador with +3 years of experience. I'm passionate
+      about databases, UI/UX design, and building open-source software.
+    </p>
+  </article>
   <nav class="flex flex-wrap gap-4 mt-8">
     <SocialPill href="">
       <File class="size-5" />
