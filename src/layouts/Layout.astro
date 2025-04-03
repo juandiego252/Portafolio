@@ -3,19 +3,27 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 // Supports weights 100-900
 import "../styles/global.css";
+import "@fontsource/onest";
 ---
 
-<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={Astro.props.description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{Astro.props.title}</title>
+    <link
+      rel="preload"
+      href="/node_modules/@fontsource/onest/files/onest-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="generator" content={Astro.generator} /><title>
+      {Astro.props.title}
+    </title>
   </head>
-  <body class="relative bg-[#171717]">
+  <body class="bg-[#ffff] dark:bg-[#171717] text-[#171717] dark:text-[#ffff]">
     <Header />
     <slot />
     <Footer />

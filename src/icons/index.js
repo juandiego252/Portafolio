@@ -9,6 +9,8 @@ export { default as Link } from './Link.astro';
 export { default as BriefCase } from './BriefCase.astro';
 export { default as ArrowUpRight } from './ArrowUpRight.astro';
 export { default as UserBolt } from './UserBolt.astro';
+export { default as SunIcon } from './SunIcon.astro';
+export { default as MoonIcon } from './MoonIcon.astro';
 
 // Stack Icons
 export { default as NextJS } from './NextJS.astro';

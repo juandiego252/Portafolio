@@ -1,6 +1,6 @@
 ---
 import { GitHub, LinkedIn } from "../icons";
-
+import ModeToggle from "./ModeToggle.astro";
 
 // Definir tipos para los enlaces
 interface NavItem {
@@ -50,13 +50,13 @@ const socialLinks: SocialLink[] = [
 ];
 ---
 
-<header class="fixed top-0 z-50 w-full bg-[#171717] backdrop-blur-md">
+<header class="fixed top-0 z-50 w-full bg-[#ffff] dark:bg-[#171717] backdrop-blur-md">
   <div class="mx-auto max-w-4xl px-4 py-3 flex items-center justify-between">
     <a
       href="/"
       class="text-md flex items-center space-x-2 font-medium tracking-tight text-white opacity-80 transition-opacity duration-150 hover:opacity-100"
     >
-      <span>Juandiegc.dev</span>
+      <span class="text-black dark:text-white">juandiegc.dev</span>
     </a>
 
     <!-- Navigation links for desktop
@@ -87,6 +87,7 @@ const socialLinks: SocialLink[] = [
           </a>
         ))
       }
+      <ModeToggle />
     </div>
   </div>
 </header>
