@@ -11,6 +11,8 @@ export { default as ArrowUpRight } from './ArrowUpRight.astro';
 export { default as UserBolt } from './UserBolt.astro';
 export { default as SunIcon } from './SunIcon.astro';
 export { default as MoonIcon } from './MoonIcon.astro';
+export { default as CloudIcon } from './CloudIcon.astro';
+export { default as Lenguage } from './LanguageIcon.astro';
 
 // Stack Icons
 export { default as NextJS } from './NextJS.astro';

@@ -1,6 +1,6 @@
 ---
 import Badge from "./Badge.astro";
-import { GitHub, LinkedIn, Mail, File } from "../icons";
+import { Mail, CloudIcon } from "../icons";
 import SocialPill from "./SocialPill.astro";
 import juanPhoto from "../images/juan-photo.png";
 import { Image } from "astro:assets";
@@ -34,13 +34,13 @@ import { Image } from "astro:assets";
     </p>
   </article>
   <nav class="flex flex-wrap gap-4 mt-8">
-    <SocialPill href="">
-      <File class="size-5" />
-      Ver - CV
-    </SocialPill>
     <SocialPill href="mailto:juandiegojd252@gmail.com">
-      <Mail class="size-4" />
+      <Mail class="size-5" />
       juandiego252@gmail.com
+    </SocialPill>
+    <SocialPill href="">
+      <CloudIcon class="size-5" />
+      Curriculum
     </SocialPill>
   </nav>
 </div>
