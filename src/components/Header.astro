@@ -1,6 +1,7 @@
 ---
 import { GitHub, Lenguage, LinkedIn } from "../icons";
 import ModeToggle from "./ModeToggle.astro";
+import TranslateComponent from "./TranslateComponent.astro";
 
 // Definir tipos para los enlaces
 interface NavItem {
@@ -89,8 +90,9 @@ const socialLinks: SocialLink[] = [
           </a>
         ))
       }
-      <!-- <Lenguage /> -->
       <ModeToggle />
+      <!-- <Lenguage /> -->
+      <TranslateComponent />
     </div>
   </div>
 </header>
