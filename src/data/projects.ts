@@ -34,7 +34,7 @@ export const Projects: IProjects[] = [
         title: "Penguin GPT",
         description: {
 
-            en: "🐧Application with AI for different tasks.",
+            en: "🐧 Application with AI for different tasks.",
             es: "🐧 Aplicación con IA para diferentes tareas.",
         },
         github: "https://github.com/juandiego252/ReactGTP-Project.git",
