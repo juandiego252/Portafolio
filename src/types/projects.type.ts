@@ -16,9 +16,15 @@ export type Stack =
     | 'Gemini'
     | 'Next.js';
 
+type MultiLanguageDescription = {
+    en: string;
+    es: string;
+}
+
 export interface IProjects {
+    id?: string;
     title: string;
-    description: string;
+    description: MultiLanguageDescription;
     link: string;
     github: string;
     image: string;

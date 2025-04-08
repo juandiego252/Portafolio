@@ -2,10 +2,14 @@
 import { technologies } from "../data/technologies";
 import type { Stack } from "../types/projects.type";
 import { GitHub, ArrowUpRight } from "../icons";
+import { getLangFromUrl, getLocalizedContent } from "../i18n/utils";
 
 export interface Props {
   title: string;
-  description: string;
+  description: {
+    en: string;
+    es: string;
+  };
   image: string;
   tags: Stack[];
   link: string;
@@ -13,6 +17,7 @@ export interface Props {
   latest?: boolean;
   updated?: boolean;
   fullstack?: boolean;
+  id?: string;
 }
 
 const {
@@ -25,7 +30,12 @@ const {
   latest = false,
   updated = false,
   fullstack = false,
+  id,
 } = Astro.props;
+// Obtener el idioma actual y las traducciones
+const lang = getLangFromUrl(Astro.url);
+// Get localized content
+const localizedDescription = getLocalizedContent(description, lang);
 ---
 
 <div
@@ -103,7 +113,7 @@ const {
 
     <!-- Description -->
     <p class="truncate text-sm dark:text-neutral-400 text-neutral-800">
-      {description}
+      {localizedDescription}
     </p>
 
     <!-- Tags -->

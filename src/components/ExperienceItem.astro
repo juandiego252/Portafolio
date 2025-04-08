@@ -1,18 +1,34 @@
 ---
+import {
+  getLangFromUrl,
+  getLocalizedContent,
+  useTranslations,
+} from "../i18n/utils";
 import { ArrowUpRight } from "../icons";
 
 interface Props {
-  role: string;
-  aboutRole: string;
+  role: {
+    en: string;
+    es: string;
+  };
+  aboutRole: {
+    en: string;
+    es: string;
+  };
   company: string;
   companyUrl: string;
-  startDate: string;
-  endDate: string;
-  latest: boolean;
+  datePeriod: {
+    en: string;
+    es: string;
+  };
 }
-
-const { role, aboutRole, company, companyUrl, startDate, endDate, latest } =
-  Astro.props;
+// Obtener el idioma actual y las traducciones
+const lang = getLangFromUrl(Astro.url);
+const { role, aboutRole, company, companyUrl, datePeriod } = Astro.props;
+// Obtener el texto localizado para el rol y la descripción
+const localizedRole = getLocalizedContent(role, lang);
+const localizedAboutRole = getLocalizedContent(aboutRole, lang);
+const localizedDate = getLocalizedContent(datePeriod, lang);
 ---
 
 <li class="ms-5 mt-1">
@@ -21,11 +37,15 @@ const { role, aboutRole, company, companyUrl, startDate, endDate, latest } =
   >
   </div>
   <time class="mb-2 text-xs dark:text-white/80 leading-none text-neutral-600"
-    >{startDate} - {endDate}</time
+    >{localizedDate}</time
   >
 
   <div class="mt-2 flex flex-col space-y-0.5">
-    <h3 class="text-lg font-semibold tracking-tight dark:text-[#d0ff0d] text-black">{role}</h3>
+    <h3
+      class="text-lg font-semibold tracking-tight dark:text-[#d0ff0d] text-black"
+    >
+      {localizedRole}
+    </h3>
     <h4 class="text-xl text-white">
       <a
         href={companyUrl}
@@ -41,6 +61,6 @@ const { role, aboutRole, company, companyUrl, startDate, endDate, latest } =
     </h4>
   </div>
   <p class="mt-3 dark:text-neutral-400 text-sm text-pretty text-neutral-700">
-    {aboutRole}
+    {localizedAboutRole}
   </p>
 </li>

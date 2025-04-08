@@ -1,9 +1,14 @@
 ---
+import { languagesList } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
 import { Lenguage } from "../icons";
+const currentLang = getLangFromUrl(Astro.url);
+const { pathname } = Astro.url;
 ---
 
 <div class="relative inline-block">
     <button
+        title="Change Language"
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         class="inline-flex h-9 w-9 items-center justify-center rounded-md dark:text-gray-300 dark:hover:text-white transition-colors duration-300 text-black hover:text-neutral-400 cursor-pointer"
@@ -22,34 +27,66 @@ import { Lenguage } from "../icons";
             class="py-2 text-sm text-gray-700 dark:text-gray-200"
             aria-labelledby="dropdownDefaultButton"
         >
-            <li>
-                <a
-                    href="#"
-                    data-lang="en"
-                    class="block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-white"
-                >
-                    <img
-                        src="/public/assets/flags/us.svg"
-                        alt="English"
-                        class="size-5 rounded-full inline-block mr-2"
-                    />
-                    English</a
-                >
-            </li>
-            <li>
-                <a
-                    href="#"
-                    data-lang="es"
-                    class="block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-white"
-                >
-                    <img
-                        src="/public/assets/flags/es.svg"
-                        alt="English"
-                        class="size-5 rounded-full inline-block mr-2"
-                    />
-                    Spanish</a
-                >
-            </li>
+            {
+                Object.entries(languagesList).map(([lang, label]) => {
+                    const isActive = currentLang === lang;
+
+                    // Crea la ruta correctamente
+                    let path;
+
+                    // Primero, determina si la URL actual ya tiene un prefijo de idioma
+                    const hasLangPrefix = pathname.match(/^\/[a-z]{2}(?:\/|$)/);
+
+                    if (lang === "en") {
+                        // Para inglés (idioma predeterminado):
+                        // Si hay prefijo de idioma, quítalo y deja el resto de la ruta
+                        if (hasLangPrefix) {
+                            path = pathname.replace(
+                                /^\/[a-z]{2}(\/.*)?$/,
+                                "$1",
+                            );
+                            if (path === "") path = "/";
+                        } else {
+                            // Ya está en una ruta sin prefijo (inglés)
+                            path = pathname;
+                        }
+                    } else {
+                        // Para español:
+                        if (hasLangPrefix && pathname.startsWith(`/${lang}`)) {
+                            // Ya está en la ruta del idioma correcto
+                            path = pathname;
+                        } else if (hasLangPrefix) {
+                            // Tiene prefijo pero de otro idioma, reemplázalo
+                            path = pathname.replace(
+                                /^\/[a-z]{2}(\/.*)?$/,
+                                `/${lang}$1`,
+                            );
+                        } else {
+                            // No tiene prefijo (está en inglés), añade el prefijo
+                            path = `/${lang}${pathname === "/" ? "" : pathname}`;
+                        }
+                    }
+
+                    console.log(`Generando ruta para ${lang}: ${path}`);
+
+                    return (
+                        <li>
+                            <a
+                                href={path}
+                                data-lang={lang}
+                                class={`block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-white ${isActive ? "font-bold" : ""}`}
+                            >
+                                <img
+                                    src={`/assets/flags/${lang === "en" ? "us" : "es"}.svg`}
+                                    alt={label}
+                                    class="size-5 rounded-full inline-block mr-2"
+                                />
+                                {label}
+                            </a>
+                        </li>
+                    );
+                })
+            }
         </ul>
     </div>
 </div>
@@ -94,9 +131,20 @@ import { Lenguage } from "../icons";
             button.addEventListener("click", function (e) {
                 e.preventDefault();
                 const lang = this.getAttribute("data-lang");
+                const href = this.getAttribute("href");
+
                 console.log("Idioma seleccionado:", lang);
+                console.log("Navegando a:", href);
+
                 // Implementación del cambio de idioma
-                // localStorage.setItem('language', lang);
+                if (lang && href) {
+                    // Guardar la preferencia del usuario
+                    localStorage.setItem("preferredLanguage", lang);
+
+                    // Navegar a la URL con el idioma seleccionado
+                    window.location.href = href;
+                }
+
                 dropdown.classList.add("hidden");
             });
         });

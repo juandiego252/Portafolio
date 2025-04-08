@@ -1,6 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import juanPhotoGhibli from "../images/JuanGhibli.png";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { AboutMe } from "../data/aboutme";
+import { defaultLanguage } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const localizedAboutMe =
+    typeof AboutMe === "object"
+        ? AboutMe[lang] || AboutMe[defaultLanguage]
+        : AboutMe;
 ---
 
 <article
@@ -8,35 +17,8 @@ import juanPhotoGhibli from "../images/JuanGhibli.png";
 >
     <div
         class="[&>p]:mb-4 dark:[&>p>strong]:text-[#d0ff0d] [&>p>strong] [&>p>strong]:text-black text-pretty order-2 md:order-1"
-    >
-        <p>
-            Mi nombre es Juan Diego y soy de Quito, Ecuador. Termine mis
-            estudios como Tecnólogo en
-            <strong> Desarrollo de Software </strong>en la Escuela Politécnica
-            Nacional en 2024 y actualmente continúo mis estudios en
-            <strong> Ingeniería en Informática </strong>
-            en la Universidad Israel.
-        </p>
-
-        <p>
-            Construyo soluciones tecnológicas desglosando problemas, explorando
-            alternativas y desarrollando estrategias eficientes.<strong>
-                Mis proyectos personales son mi laboratorio, donde experimento
-                con inteligencia artifical, aplicaciones que automatizan tareas
-                tediosas y desarrollo web fullstack</strong
-            > , cada línea de código expande mis capacidades técnicas, representa
-            un desafío conquistado y una habilidad desarrollada.
-        </p>
-
-        <p>
-            Disfruto del trabajo en equipo y del intercambio de ideas, ya que
-            considero que la colaboración y la comunicación efectiva son clave
-            para crear soluciones innovadoras. Creo en la mejora continua y en
-            la capacidad de la tecnología para transformar ideas en soluciones
-            reales. Mi enfoque es pragmático:
-            <strong>construir, probar, iterar y mejorar</strong>.
-        </p>
-    </div>
+        set:html={localizedAboutMe}
+    />
     <Image
         alt="JuanDiegoGhibli"
         width="200"

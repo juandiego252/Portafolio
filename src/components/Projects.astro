@@ -2,20 +2,26 @@
 import Card from "./Card.astro";
 import { Projects as PROJECTS } from "../data/projects.ts";
 ---
+
 <div class="grid grid-cols-1 gap-3 md:grid-cols-2 mt-10">
   {
     PROJECTS.map(
-      ({
-        title,
-        description,
-        image,
-        tags,
-        link,
-        github,
-        updated,
-        fullstack,
-      }) => (
+      (
+        {
+          id,
+          title,
+          description,
+          image,
+          tags,
+          link,
+          github,
+          updated,
+          fullstack,
+        },
+        index,
+      ) => (
         <Card
+          id={id}
           title={title}
           description={description}
           image={image}
