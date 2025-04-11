@@ -70,7 +70,9 @@ const localizedDescription = getLocalizedContent(description, lang);
               rel="noopener"
               class="group flex items-center gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
             >
-              <span class="text-black dark:text-white">{title}</span>
+              <span class="text-black dark:text-white tracking-wide">
+                {title}
+              </span>
               <ArrowUpRight class="w-3 h-3 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100" />
             </a>
           ) : (
@@ -112,7 +114,7 @@ const localizedDescription = getLocalizedContent(description, lang);
     </div>
 
     <!-- Description -->
-    <p class="truncate text-sm dark:text-neutral-400 text-neutral-800">
+    <p class="truncate text-sm dark:text-[#d1cfc0] text-neutral-800">
       {localizedDescription}
     </p>
 
@@ -127,7 +129,7 @@ const localizedDescription = getLocalizedContent(description, lang);
           return (
             <span
               class={
-                "flex items-center gap-1 px-2 py-1 rounded-full bg-[#ededed] dark:bg-[#171717] border-2 border-neutral-300 dark:border-neutral-800 text-xs"
+                "flex items-center gap-1 px-2 py-1 rounded-lg bg-[#ededed] dark:bg-[#1f1f1f] border-2 border-neutral-300 dark:border-neutral-700 text-xs"
               }
             >
               {Icon && <Icon class="w-3.5 h-3.5 flex-shrink-0" />}

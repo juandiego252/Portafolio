@@ -21,10 +21,10 @@ const { pathname } = Astro.url;
     <!-- Dropdown menu -->
     <div
         id="dropdown"
-        class="z-10 hidden absolute top-full right-0 mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-29 dark:bg-neutral-800"
+        class="z-10 hidden absolute top-full right-0 mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-35 dark:bg-[#1f1f1f] border dark:border-neutral-700"
     >
         <ul
-            class="py-2 text-sm text-gray-700 dark:text-gray-200"
+            class="py-2 text-sm text-gray-700 dark:text-[#d1cfc0] tracking-wide"
             aria-labelledby="dropdownDefaultButton"
         >
             {
@@ -74,7 +74,7 @@ const { pathname } = Astro.url;
                             <a
                                 href={path}
                                 data-lang={lang}
-                                class={`block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-white ${isActive ? "font-bold" : ""}`}
+                                class={`block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-neutral-200 ${isActive ? "dark:text-white dark:bg-neutral-700/50" : ""}`}
                             >
                                 <img
                                     src={`/assets/flags/${lang === "en" ? "us" : "es"}.svg`}

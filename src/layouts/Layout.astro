@@ -3,7 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 // Supports weights 100-900
 import "../styles/global.css";
-import "@fontsource/onest";
+import "@fontsource/bricolage-grotesque";
 
 interface Props {
   title: string;
@@ -20,7 +20,7 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/juandiegc.svg?v=2" />
     <link
       rel="preload"
-      href="/node_modules/@fontsource/onest/files/onest-latin-400-normal.woff2"
+      href="/node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-400-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -45,7 +45,9 @@ const { title, description } = Astro.props;
       }
     </script>
   </head>
-  <body class="bg-[#f5f5f5] dark:bg-[#171717] text-[#171717] dark:text-[#ffff]">
+  <body
+    class="bg-[#f5f5f5] dark:bg-[#1f1f1f] text-[#171717] dark:text-[#d1cfc0]"
+  >
     <Header />
     <slot />
     <Footer />
