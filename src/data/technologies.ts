@@ -13,6 +13,7 @@ import {
     OpenIA,
     NestJS,
     Gemini,
+    Azure,
 } from "../icons";
 
 interface Technologies {
@@ -81,4 +82,8 @@ export const technologies: Technologies[] = [
         stack: 'Next.js',
         icon: NextJS,
     },
+    {
+        stack: 'Azure',
+        icon: Azure,
+    }
 ]   

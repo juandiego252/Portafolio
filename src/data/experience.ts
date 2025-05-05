@@ -7,14 +7,14 @@ export const Experience: IExperience[] = [
             es: "Pasante en desarrollo de software",
         },
         aboutRole: {
-            en: "Development of mobile applications using technologies such as React Native, Node.js, Express.js, among others and tutor at the company's programming school.",
-            es: "Desarrollo de aplicaciones móviles con tecnologías como React Native, Node.js, Express.js, entre otras y tutor en la escuela de programación de la empresa.",
+            en: "Developed mobile applications using technologies such as React Native, Node.js, and Express.js. Additionally, served as a programming tutor in the company’s training school, supporting students with learning and project development.",
+            es: "Desarrollé aplicaciones móviles utilizando tecnologías como React Native, Node.js y Express.js. Además, fui tutor de programación en la escuela de formación de la empresa, apoyando a los estudiantes en su aprendizaje y desarrollo de proyectos.",
         },
         company: "Clear Minds Consultores",
         companyUrl: "https://clearminds-it.com/",
         datePeriod: {
-            en: "January 2024 - June 2024",
-            es: "Enero 2024 - Junio 2024",
+            en: "January 2024 - April 2024",
+            es: "Enero 2024 - Abril 2024",
         },
         latest: true,
     }

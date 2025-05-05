@@ -9,7 +9,7 @@ export const ui = {
   en: {
     // Profile section
     'profile.badge': 'FullStack Developer!',
-    'profile.intro': ", a fullstack web developer from Quito Ecuador with +3 years of experience. I'm passionate about databases, UI/UX design, and building open-source software.",
+    'profile.intro': ", A fullstack web developer from Quito, Ecuador. I'm passionate about designing efficient backend architectures, working on engaging UI/UX experiences, and contributing to open-source software projects.",
 
     // Section titles
     'title.experience': 'Experience',
@@ -23,7 +23,7 @@ export const ui = {
   es: {
     // Profile section
     'profile.badge': '¡Desarrollador FullStack!',
-    'profile.intro': ", un desarrollador web fullstack de Quito, Ecuador con +3 años de experiencia. Me apasionan las bases de datos, el diseño UI/UX y crear software de código abierto.",
+    'profile.intro': ", un desarrollador web fullstack de Quito,Ecuador. Me apasiona diseñar arquitecturas backend eficientes, trabajar en experiencias UI/UX atractivas y contribuir a proyectos de software de código abierto.",
 
     // Section titles
     'title.experience': 'Experiencia',

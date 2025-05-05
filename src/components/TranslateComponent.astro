@@ -21,7 +21,7 @@ const { pathname } = Astro.url;
     <!-- Dropdown menu -->
     <div
         id="dropdown"
-        class="z-10 hidden absolute top-full right-0 mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-35 dark:bg-[#1f1f1f] border dark:border-neutral-700"
+        class="z-10 hidden absolute top-full right-0 mt-1 bg-[#f2f0e3] divide-y divide-gray-100 rounded-lg shadow-sm w-35 dark:bg-[#1f1f1f] border dark:border-neutral-700 border-neutral-400/40"
     >
         <ul
             class="py-2 text-sm text-gray-700 dark:text-[#d1cfc0] tracking-wide"
@@ -74,7 +74,7 @@ const { pathname } = Astro.url;
                             <a
                                 href={path}
                                 data-lang={lang}
-                                class={`block w-full px-4 py-2 hover:bg-transparent dark:hover:bg-transparent dark:hover:text-neutral-200 ${isActive ? "dark:text-white dark:bg-neutral-700/50" : ""}`}
+                                class={`block w-full px-4 py-2 hover:bg-neutral-300/40 dark:hover:bg-transparent dark:hover:text-neutral-200 ${isActive ? "dark:text-white dark:bg-neutral-700/50 bg-neutral-300/40 text-black" : ""}`}
                             >
                                 <img
                                     src={`/assets/flags/${lang === "en" ? "us" : "es"}.svg`}
@@ -98,7 +98,6 @@ const { pathname } = Astro.url;
         const dropdown = document.getElementById("dropdown");
 
         if (!dropdownButton || !dropdown) {
-            console.error("No se encontraron los elementos del dropdown");
             return;
         }
 
@@ -132,10 +131,6 @@ const { pathname } = Astro.url;
                 e.preventDefault();
                 const lang = this.getAttribute("data-lang");
                 const href = this.getAttribute("href");
-
-                console.log("Idioma seleccionado:", lang);
-                console.log("Navegando a:", href);
-
                 // Implementación del cambio de idioma
                 if (lang && href) {
                     // Guardar la preferencia del usuario

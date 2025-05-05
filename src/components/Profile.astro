@@ -5,6 +5,7 @@ import SocialPill from "./SocialPill.astro";
 import juanPhoto from "../images/juan-photo.png";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import miCv from "../../public/assets/curriculum/Juan_Gualotuña_CV.pdf";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -42,7 +43,7 @@ const t = useTranslations(lang);
       <Mail class="size-5" />
       juandiego252@gmail.com
     </SocialPill>
-    <SocialPill href="">
+    <SocialPill href={miCv} target="_blank" download="JuanGualotuña-CV.pdf">
       <CloudIcon class="size-5" />
       {lang === "en" ? "Resume" : "Curriculum"}
     </SocialPill>

@@ -14,7 +14,8 @@ export type Stack =
     | 'Cloudinary'
     | 'OpenAI'
     | 'Gemini'
-    | 'Next.js';
+    | 'Next.js'
+    | 'Azure';
 
 type MultiLanguageDescription = {
     en: string;
