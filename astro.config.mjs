@@ -11,8 +11,6 @@ export default defineConfig({
       prefixDefaultLocale: false,
     }
   },
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  integrations: [tailwindcss()],
   site: "https://juandiegc.me"
 });
