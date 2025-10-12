@@ -4,6 +4,24 @@ export const Experience: IExperience[] = [
     {
         role: {
             en: "Software Development Intern",
+            es: "Pasante en desarrollo de software"
+        },
+        aboutRole: {
+            en: "",
+            es: "Desarrollé aplicaciones "
+        },
+        company: "Carfaith",
+        companyUrl: "https://carfaith.com/",
+        datePeriod: {
+            en: "April 2025 - July 2025",
+            es: "Abril 2025 - Julio 2025"
+        },
+        latest: true
+    },
+
+    {
+        role: {
+            en: "Software Development Intern",
             es: "Pasante en desarrollo de software",
         },
         aboutRole: {
@@ -17,5 +35,5 @@ export const Experience: IExperience[] = [
             es: "Enero 2024 - Abril 2024",
         },
         latest: true,
-    }
+    },
 ]

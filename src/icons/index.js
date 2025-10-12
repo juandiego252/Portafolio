@@ -13,6 +13,8 @@ export { default as SunIcon } from './SunIcon.astro';
 export { default as MoonIcon } from './MoonIcon.astro';
 export { default as CloudIcon } from './CloudIcon.astro';
 export { default as Lenguage } from './LanguageIcon.astro';
+export { default as ArrowLeft } from './ArrowLeft.astro';
+export { default as ArrowRight } from './ArrowRight.astro';
 
 // Stack Icons
 export { default as NextJS } from './NextJS.astro';
@@ -29,3 +31,4 @@ export { default as NestJS } from './NestJS.astro';
 export { default as OpenIA } from './OpenIA.astro';
 export { default as Gemini } from './Gemini.astro';
 export { default as Azure } from './Azure.astro';
+export { default as PostgreSQL } from './PostgreSQL.astro';

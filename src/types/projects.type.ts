@@ -15,11 +15,18 @@ export type Stack =
     | 'OpenAI'
     | 'Gemini'
     | 'Next.js'
-    | 'Azure';
+    | 'Azure'
+    | 'PostgreSQL'
+    | 'Dotnet';
 
 type MultiLanguageDescription = {
     en: string;
     es: string;
+}
+
+type Images = {
+    src: string;
+    alt: string;
 }
 
 export interface IProjects {
@@ -28,7 +35,8 @@ export interface IProjects {
     description: MultiLanguageDescription;
     link: string;
     github: string;
-    image: string;
+    favIcon: string;
+    image: Images[];
     tags: Stack[];
     updated?: true,
     fullstack?: boolean;

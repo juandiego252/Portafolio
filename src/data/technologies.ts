@@ -14,6 +14,7 @@ import {
     NestJS,
     Gemini,
     Azure,
+    PostgreSQL,
 } from "../icons";
 
 interface Technologies {
@@ -85,5 +86,9 @@ export const technologies: Technologies[] = [
     {
         stack: 'Azure',
         icon: Azure,
-    }
+    },
+    {
+        stack: 'PostgreSQL',
+        icon: PostgreSQL,
+    },
 ]   

@@ -1,0 +1,313 @@
+---
+import { technologies } from "../data/technologies";
+import { getLangFromUrl, getLocalizedContent } from "../i18n/utils";
+import { ArrowLeft, ArrowRight, ArrowUpRight, GitHub } from "../icons";
+import type { Stack } from "../types/projects.type";
+
+export interface Props {
+    title: string;
+    description: {
+        en: string;
+        es: string;
+    };
+    favIcon: string;
+    image: {
+        src: string;
+        alt: string;
+    }[];
+    tags: Stack[];
+    link: string;
+    github?: string;
+    latest?: boolean;
+    updated?: boolean;
+    fullstack?: boolean;
+    id?: string;
+}
+
+const {
+    title,
+    description,
+    favIcon,
+    image,
+    tags,
+    link,
+    github,
+    latest,
+    updated,
+    fullstack,
+    id,
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const localizedDescription = getLocalizedContent(description, lang);
+
+// Generar un ID único para cada carousel
+const carouselId = id || `carousel-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div
+    class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 w-full mx-auto flex flex-col h-auto md:h-[400px] dark:border-neutral-600 dark:bg-[#1f1f1f] hover:shadow-xl transition-shadow duration-300 group"
+    data-project-card
+    data-carousel-id={carouselId}
+>
+    <div class="flex flex-col md:flex-row h-full">
+        {/* Carousel Card */}
+        <div class="md:w-1/2 relative bg-gray-100 group">
+            <div class="relative h-64 md:h-full overflow-hidden">
+                {
+                    image.map((img, index) => (
+                        <img
+                            src={img.src}
+                            alt={img.alt}
+                            class={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ease-in-out ${
+                                index === 0
+                                    ? "opacity-100 z-10"
+                                    : "opacity-0 z-0"
+                            }`}
+                            data-carousel-image={index}
+                        />
+                    ))
+                }
+                {
+                    /* Navigation Arrows - solo mostrar si hay más de una imagen */
+                }
+                {
+                    image.length > 1 && (
+                        <>
+                            <button
+                                class="carousel-prev absolute left-3 top-1/2 transform -translate-y-1/2 bg-gray-500/40 hover:bg-white/50 text-white dark:text-[#d0ff0d] p-2 rounded-full transition-all duration-300 z-20 opacity-100 lg:opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0"
+                                aria-label="Previous Image"
+                                type="button"
+                            >
+                                <ArrowLeft class="w-5 h-5" />
+                            </button>
+                            <button
+                                class="carousel-next absolute right-3 top-1/2 transform -translate-y-1/2 bg-gray-500/40 hover:bg-white/50 text-white dark:text-[#d0ff0d] p-2 rounded-full transition-all duration-300 z-20 opacity-100 lg:opacity-0 group-hover:opacity-100 translate-x-[10px] group-hover:translate-x-0"
+                                aria-label="Next Image"
+                                type="button"
+                            >
+                                <ArrowRight class="w-5 h-5" />
+                            </button>
+                        </>
+                    )
+                }
+                {/* Dots Indicators */}
+                {
+                    image.length > 1 && (
+                        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20 opacity-0 group-hover:opacity-100 translate-y-[10px] group-hover:translate-y-0 transition-all duration-300">
+                            {image.map((_, index) => (
+                                <button
+                                    class={`carousel-dot w-2 h-2 rounded-full cursor-pointer focus:outline-none transition-all duration-300 ${
+                                        index === 0
+                                            ? "ring-0 ring-white bg-white"
+                                            : "bg-white/40 bg-opacity-70 hover:bg-white/50"
+                                    }`}
+                                    data-carousel-dot={index}
+                                    aria-label={`Go to image ${index + 1}`}
+                                    type="button"
+                                />
+                            ))}
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+        {/* Project Info Section */}
+        <div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
+            <div>
+                <div
+                    class="flex flex-wrap items-center justify-between gap-2 mb-2"
+                >
+                    <div class="flex items-center gap-2">
+                        {
+                            favIcon && (
+                                <img
+                                    src={favIcon}
+                                    alt={title}
+                                    class="h-6 w-6 mb-1"
+                                />
+                            )
+                        }
+                        {
+                            link ? (
+                                <a
+                                    href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group flex items-start gap-[6px] font-medium decoration-neutral-500 decoration-dotted underline-offset-[5px] hover:underline"
+                                >
+                                    <span class="text-xl font-bold text-gray-900 mb-1 dark:text-white">
+                                        {title}
+                                    </span>
+                                    <ArrowUpRight class="w-5 h-5 opacity-50 duration-200 group-hover:translate-x-[1.5px] group-hover:opacity-100 mt-1" />
+                                </a>
+                            ) : (
+                                <p class="font-medium">{title}</p>
+                            )
+                        }
+                    </div>
+                    <div class="flex items-center gap-3">
+                        {
+                            (latest || updated || fullstack) && (
+                                <div class="flex items-center gap-1.5">
+                                    {fullstack && (
+                                        <span class="animate-shine cursor-default inline-flex items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-800 bg-[linear-gradient(110deg,#f5f5f5,45%,#d4d4d4,55%,#f5f5f5)] dark:bg-[linear-gradient(110deg,#171717,45%,#262626,55%,#171717)] bg-[length:200%_100%] px-2 py-0.5 text-[10px] font-medium text-neutral-700 dark:text-neutral-200 transition-colors">
+                                            FullStack
+                                        </span>
+                                    )}
+                                    {(latest || updated) && (
+                                        <span class="animate-shine cursor-default inline-flex items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-800 bg-[linear-gradient(110deg,#f5f5f5,45%,#d4d4d4,55%,#f5f5f5)] dark:bg-[linear-gradient(110deg,#171717,45%,#262626,55%,#171717)] bg-[length:200%_100%] px-2 py-0.5 text-[10px] font-medium text-neutral-700 dark:text-neutral-200 transition-colors">
+                                            {latest ? "latest" : "Updated"}
+                                        </span>
+                                    )}
+                                </div>
+                            )
+                        }
+                        {
+                            github && (
+                                <a
+                                    href={github}
+                                    title={`View ${title} repository on GitHub`}
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="opacity-75 transition-opacity duration-100 hover:opacity-100"
+                                >
+                                    <GitHub class="w-5 h-5" />
+                                </a>
+                            )
+                        }
+                    </div>
+                </div>
+                <p
+                    class="text-gray-600 mb-4 leading-relaxed overflow-auto flex-grow overflow-y-auto dark:text-[#d1cfc0]"
+                >
+                    {localizedDescription}
+                </p>
+                <!-- Tags -->
+                <div
+                    class="flex flex-wrap items-center gap-1 overflow-auto mt-auto pt-3 max-h-[80px]"
+                >
+                    {
+                        tags.map((tag) => {
+                            const tech = technologies.find(
+                                (t) => t.stack === tag,
+                            );
+                            const Icon = tech?.icon;
+                            return (
+                                <span
+                                    class={
+                                        "flex items-center gap-1 px-2 py-1 rounded-lg border border-neutral-400/65 dark:border-neutral-700 text-xs"
+                                    }
+                                >
+                                    {Icon && (
+                                        <Icon class="w-4.5 h-4.5 flex-shrink-0" />
+                                    )}
+                                    <span class="dark:text-neutral-200 text-xs">
+                                        {tag}
+                                    </span>
+                                </span>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Carousel Functionality
+    function initCarousel() {
+        const projectCards = document.querySelectorAll("[data-project-card]");
+
+        projectCards.forEach((card) => {
+            const carouselId = card.getAttribute("data-carousel-id");
+            if (!carouselId) return;
+
+            // Get carousel elements within this specific card
+            const images = card.querySelectorAll("[data-carousel-image]");
+            const prevButton = card.querySelector(".carousel-prev");
+            const nextButton = card.querySelector(".carousel-next");
+            const dots = card.querySelectorAll(".carousel-dot");
+
+            // If there's only one image, no need for carousel controls
+            if (images.length <= 1) return;
+
+            let currentIndex = 0;
+
+            // Function to update carousel state
+            const updateCarousel = (newIndex:number) => {
+                // Validate index
+                if (newIndex < 0) newIndex = images.length - 1;
+                if (newIndex >= images.length) newIndex = 0;
+
+                // Update images
+                images.forEach((img, index) => {
+                    if (index === newIndex) {
+                        img.classList.remove("opacity-0", "z-0");
+                        img.classList.add("opacity-100", "z-10");
+                    } else {
+                        img.classList.remove("opacity-100", "z-10");
+                        img.classList.add("opacity-0", "z-0");
+                    }
+                });
+
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === newIndex) {
+                        // Dot activo
+                        dot.classList.remove(
+                            "bg-white/40",
+                            "bg-opacity-70",
+                            "hover:bg-white/50",
+                        );
+                        dot.classList.add("ring-0", "ring-white", "bg-white");
+                    } else {
+                        // Dots inactivos - blanco semi-transparente
+                        dot.classList.remove("ring-0", "ring-white", "bg-white");
+                        dot.classList.add(
+                            "bg-white/40",
+                            "bg-opacity-70",
+                            "hover:bg-white/50",
+                        );
+                    }
+                });
+
+                currentIndex = newIndex;
+            };
+
+            // Event listeners
+            if (prevButton) {
+                prevButton.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    updateCarousel(currentIndex - 1);
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    updateCarousel(currentIndex + 1);
+                });
+            }
+
+            // Dot clicks
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    updateCarousel(index);
+                });
+            });
+        });
+    }
+
+    // Initialize on DOMContentLoaded
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initCarousel);
+    } else {
+        initCarousel();
+    }
+
+    // Re-initialize on view transitions (for Astro's View Transitions API)
+    document.addEventListener("astro:page-load", initCarousel);
+</script>
