@@ -10,7 +10,7 @@ export const Projects: IProjects[] = [
 
         },
         github: "https://github.com/juandiego252/URLShortenerApp.git",
-        link: "https://url-shorten-app-three.vercel.app/",
+        link: "https://url-shortener-app-virid.vercel.app/",
         favIcon: "/assets/projects-images/link.svg",
         image: [
             {

@@ -3,37 +3,12 @@ import { GitHub, Lenguage, LinkedIn } from "../icons";
 import ModeToggle from "./ModeToggle.astro";
 import TranslateComponent from "./TranslateComponent.astro";
 
-// Definir tipos para los enlaces
-interface NavItem {
-  title: string;
-  label: string;
-  url: string;
-}
-
 interface SocialLink {
   name: string;
   url: string;
   icon: any;
   iconSize?: number;
 }
-
-const navItems: NavItem[] = [
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
-];
 
 const socialLinks: SocialLink[] = [
   {
@@ -52,7 +27,7 @@ const socialLinks: SocialLink[] = [
 ---
 
 <header
-  class="fixed top-0 z-50 w-full bg-[#f2f0e3] dark:bg-[#1f1f1f] backdrop-blur-md"
+  class="fixed top-0 z-50 w-full bg-[#ffffff] dark:bg-[#1f1f1f] backdrop-blur-md"
 >
   <div class="mx-auto max-w-4xl px-4 py-3 flex items-center justify-between">
     <a href="/">
@@ -61,37 +36,48 @@ const socialLinks: SocialLink[] = [
       >
     </a>
 
-    <!-- Navigation links for desktop
-    <nav class="hidden md:flex items-center gap-6">
-      {
-        navItems.map(({ title, url }) => (
-          <a
-            href={url}
-            class="text-sm text-gray-300 hover:text-[#c2ff52] transition-colors duration-300"
-          >
-            {title}
-          </a>
-        ))
-      }
-    </nav> -->
-
-    <div class="md:flex items-center space-x-3">
-      {
-        socialLinks.map(({ name, url, icon: Icon }) => (
-          <a
-            href={url}
-            title={name}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-md dark:text-gray-300 dark:hover:text-white transition-colors duration-300 text-black hover:text-neutral-400"
-          >
-            <Icon class="h-[18px] w-[18px]" />
-          </a>
-        ))
-      }
-      <ModeToggle />
-      <!-- <Lenguage /> s-->
-      <TranslateComponent />
+    <div class="flex items-center">
+      <div
+        class="flex items-center rounded-full border border-neutral-400/50 dark:border-neutral-700
+               bg-white/60 dark:bg-[#1f1f1f] backdrop-blur px-1 py-1"
+      >
+        <!-- Grupo: Redes sociales -->
+        <div class="flex items-center gap-1">
+          {
+            socialLinks.map(({ name, url, icon: Icon }) => (
+              <a
+                href={url}
+                title={name}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-full
+                       text-neutral-800 dark:text-neutral-300
+                       hover:bg-neutral-100 dark:hover:bg-neutral-800
+                       hover:text-neutral-600 dark:hover:text-white
+                       transition-colors"
+              >
+                <Icon class="h-[18px] w-[18px]" />
+              </a>
+            ))
+          }
+        </div>
+    
+        <!-- Separador vertical -->
+        <div class="h-6 w-px bg-neutral-300/60 dark:bg-neutral-700/60 mx-2"></div>
+    
+        <!-- Grupo: Modo -->
+        <div class="flex items-center">
+          <ModeToggle />
+        </div>
+    
+        <!-- Separador vertical -->
+        <div class="h-6 w-px bg-neutral-300/60 dark:bg-neutral-700/60 mx-2"></div>
+    
+        <!-- Grupo: Traducción -->
+        <div class="flex items-center">
+          <TranslateComponent />
+        </div>
+      </div>
     </div>
   </div>
 </header>
