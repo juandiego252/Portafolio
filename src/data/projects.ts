@@ -2,31 +2,6 @@ import type { IProjects } from "../types/projects.type";
 
 export const Projects: IProjects[] = [
     {
-        id: "url",
-        title: "URL Shortener",
-        description: {
-            en: "🌱 Consectetur do reprehenderit ipsum adipisicing amet enim in ea qui. Ut laborum ut qui cillum minim pariatur magna incididunt ut ipsum sit anim cillum. Tempor in aliqua mollit et irure fugiat nulla ad duis ea aliquip deserunt irure officia. Anim irure et et adipisicing ex.",
-            es: "🌱 Un acortador de URL de código abierto.",
-
-        },
-        github: "https://github.com/juandiego252/URLShortenerApp.git",
-        link: "https://url-shortener-app-virid.vercel.app/",
-        favIcon: "/assets/projects-images/link.svg",
-        image: [
-            {
-                src: "/assets/projects-mocks/URLShorterAppOne.png",
-                alt: "URL Shortener - Home Page"
-            },
-            {
-                src: "/assets/projects-mocks/URLShorterAppTwo.png",
-                alt: "URL Shortener - Home Page"
-            },
-        ],
-        tags: ['React', 'Tailwind', 'ASP.NET', 'Redis', 'Azure'],
-        updated: true,
-        fullstack: true,
-    },
-    {
         id: "penguin",
         title: "Penguin GPT",
         description: {
@@ -56,6 +31,35 @@ export const Projects: IProjects[] = [
             },
         ],
         tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini'],
+        fullstack: true,
+    },
+    {
+        id: "url",
+        title: "URL Shortener",
+        description: {
+            en: "🌱 Link shortening service developed with ASP.NET Core, designed to transform long URLs into short, easy-to-share links. It has optimized performance thanks to the use of cache, which guarantees fast and efficient responses. In addition, it offers a detailed statistics system that allows you to track the use of each link.",
+            es: "🌱 Servicio de acortamiento de enlaces desarrollado con ASP.NET Core, diseñado para transformar URLs largas en enlaces cortos y fáciles de compartir. Posee un redimiento optimizado gracias al uso de caché, lo que garantiza respuestas rápidas y eficientes. Además, ofrece un sistema de estadísticas detalladas que permite rastrear el uso de cada enlace.",
+
+        },
+        github: "https://github.com/juandiego252/URLShortenerApp.git",
+        link: "https://url-shortener-app-virid.vercel.app/",
+        favIcon: "/assets/projects-images/link.svg",
+        image: [
+            {
+                src: "/assets/projects-mocks/URLShorterAppOne.png",
+                alt: "URL Shortener - Home Page"
+            },
+            {
+                src: "/assets/projects-mocks/URLShorterAppTwo.png",
+                alt: "URL Shortener - Home Page"
+            },
+            {
+                src: "/assets/projects-mocks/URLShorterAppThree.png",
+                alt: "URL Shortener - Home Page"
+            }
+        ],
+        tags: ['React', 'Tailwind', 'ASP.NET', 'Redis', 'Azure'],
+        updated: true,
         fullstack: true,
     },
     {
