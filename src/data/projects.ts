@@ -6,31 +6,35 @@ export const Projects: IProjects[] = [
         title: "Penguin GPT",
         description: {
 
-            en: "🐧 Application with AI for different tasks.",
-            es: "🐧 Aplicación con IA para diferentes tareas.",
+            en: "🐧 Intelligent assistance application with artificial intelligence tools. It combines multiple functionalities, including spell checking, text-to-speech and speech-to-text conversion, as well as image generation and recreation for animation studies. Its interface prioritizes usability with elements that highlight the main functions.",
+            es: "🐧 Aplicación de asistencia inteligente con herramientas de inteligencia artificial. Combina múltiples funcionalidades, incluyendo correción ortográfica, conversión de texto a audio y de audio a texto, así como generación y recreación de imágenes orientadas a estudios de animación. Su interfaz prioriza la usabilidad con elementos que resaltan las funciones principales.",
         },
         github: "https://github.com/juandiego252/ReactGTP-Project.git",
         link: "",
         favIcon: "/assets/projects-images/PenguinGPT.svg",
         image: [
             {
-                src: "https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=",
+                src: "/assets/projects-mocks/PenguinGPTOne.png",
                 alt: "URL Shortener - Home Page"
             },
             {
-                src: "https://images.unsplash.com/photo-1526779259212-939e64788e3c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
+                src: "/assets/projects-mocks/PenguinGPTwo.png",
                 alt: "URL Shortener - Home Page"
             },
             {
-                src: "https://img.freepik.com/free-photo/person-warm-coat-standing-rocky-mountain-looking-trees_181624-5409.jpg?semt=ais_hybrid&w=740",
+                src: "/assets/projects-mocks/PenguinGPThree.png",
                 alt: "URL Shortener - Home Page"
             },
             {
-                src: "https://t4.ftcdn.net/jpg/06/25/82/63/360_F_625826397_CYcCuHP8h8KZRBzhZ0WgNtVWBJQNobxB.jpg",
+                src: "/assets/projects-mocks/PenguinGPTFour.png",
+                alt: "URL Shortener - Home Page"
+            },
+            {
+                src: "/assets/projects-mocks/PenguinGPTFive.png",
                 alt: "URL Shortener - Home Page"
             },
         ],
-        tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini'],
+        tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini', 'Azure'],
         fullstack: true,
     },
     {
