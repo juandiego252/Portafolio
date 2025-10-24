@@ -15,6 +15,7 @@ import {
     Gemini,
     Azure,
     PostgreSQL,
+    Vercel
 } from "../icons";
 
 interface Technologies {
@@ -91,4 +92,8 @@ export const technologies: Technologies[] = [
         stack: 'PostgreSQL',
         icon: PostgreSQL,
     },
+    {
+        stack: 'Vercel',
+        icon: Vercel,
+    }
 ]   

@@ -17,7 +17,8 @@ export type Stack =
     | 'Next.js'
     | 'Azure'
     | 'PostgreSQL'
-    | 'Dotnet';
+    | 'Dotnet'
+    | 'Vercel';
 
 type MultiLanguageDescription = {
     en: string;

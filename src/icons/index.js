@@ -32,3 +32,4 @@ export { default as OpenIA } from './OpenIA.astro';
 export { default as Gemini } from './Gemini.astro';
 export { default as Azure } from './Azure.astro';
 export { default as PostgreSQL } from './PostgreSQL.astro';
+export { default as Vercel } from './Vercel.astro';

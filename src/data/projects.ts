@@ -38,7 +38,7 @@ export const Projects: IProjects[] = [
                 alt: "URL Shortener - Home Page"
             },
         ],
-        tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini', 'Azure'],
+        tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini', 'Azure', 'Vercel'],
         fullstack: true,
         updated: true,
     },
@@ -67,7 +67,7 @@ export const Projects: IProjects[] = [
                 alt: "URL Shortener - Home Page"
             }
         ],
-        tags: ['React', 'Tailwind', 'ASP.NET', 'Redis', 'Azure'],
+        tags: ['React', 'Tailwind', 'ASP.NET', 'Redis', 'Azure', 'Vercel'],
         updated: true,
         fullstack: true,
     },
