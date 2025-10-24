@@ -10,7 +10,7 @@ export const Projects: IProjects[] = [
             es: "🐧 Aplicación de asistencia inteligente con herramientas de inteligencia artificial. Combina múltiples funcionalidades, incluyendo correción ortográfica, conversión de texto a audio y de audio a texto, así como generación y recreación de imágenes orientadas a estudios de animación. Su interfaz prioriza la usabilidad con elementos que resaltan las funciones principales.",
         },
         github: "https://github.com/juandiego252/ReactGTP-Project.git",
-        link: "",
+        link: "https://penguin-gpt-five.vercel.app",
         favIcon: "/assets/projects-images/PenguinGPT.svg",
         image: [
             {
@@ -33,9 +33,14 @@ export const Projects: IProjects[] = [
                 src: "/assets/projects-mocks/PenguinGPTFive.png",
                 alt: "URL Shortener - Home Page"
             },
+            {
+                src: "/assets/projects-mocks/PenguinGPTSix.png",
+                alt: "URL Shortener - Home Page"
+            },
         ],
         tags: ['React', 'Tailwind', 'NestJS', 'OpenAI', 'Gemini', 'Azure'],
         fullstack: true,
+        updated: true,
     },
     {
         id: "url",
