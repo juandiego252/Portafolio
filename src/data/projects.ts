@@ -75,39 +75,23 @@ export const Projects: IProjects[] = [
         id: "wallpaper",
         title: "Wallpapers - App",
         description: {
-            en: "📱 Minimalist Collection of iPhone Wallpapers",
-            es: "📱 Colección minimalista de fondos de pantalla para iPhone"
+            en: "📱 Web application developed with React, Tailwind, Node.js, Express, and MongoDB, allowing users to explore and manage a gallery of wallpapers. Users can search for images by keyword or category. Images are stored in Cloudinary, and their URLs are saved in the database. The project implements a frontend-backend architecture connected via REST API.",
+            es: "📱 Aplicación web desarrollada con React, Tailwind, Node.js, Express y MongoDB, permite explorar y gestionar una galería de wallpapers. Los usuarios pueden buscar imágenes por palabras clave o categorías. Las imágenes se almacenan en Cloudinary, y sus URLs se guardan en la base de datos. El proyecto implementa una arquitectura frontend-backend conectada mediante API REST."
         },
         link: "",
         github: "https://github.com/juandiego252/WallPapers-App.git",
         favIcon: "/assets/projects-images/wallpaper.svg",
         image: [
             {
-                src: "/assets/projects-images/wallpaper-app-1.png",
+                src: "/assets/projects-mocks/WallpapersOne.png",
+                alt: "Wallpapers App - Home Page"
+            },
+            {
+                src: "/assets/projects-mocks/WallpapersTwo.png",
                 alt: "Wallpapers App - Home Page"
             },
         ],
         tags: ['React', 'MongoDB', 'Express', 'Cloudinary'],
         fullstack: true
     },
-    {
-        id: "carfaith",
-        title: "Carfaith - App",
-        description: {
-            en: "🚗 Car dealership app with admin panel.",
-            es: "🚗 Aplicación para manejo de productos",
-        },
-        link: "",
-        github: "",
-        favIcon: "/assets/projects-images/carfaith.svg",
-        image: [
-            {
-                src: "/assets/projects-images/carfaith-1.png",
-                alt: "Carfaith App - Home Page"
-            },
-        ],
-        tags: ['React', 'ASP.NET', 'Azure', 'PostgreSQL'],
-        fullstack: true
-    }
-
 ]
