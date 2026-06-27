@@ -15,5 +15,5 @@ export default defineConfig({
     vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://juandiegc.me"
+  site: "https://www.dgctaxlegal.com"
 });
