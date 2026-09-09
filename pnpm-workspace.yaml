@@ -1,6 +1,18 @@
+packages:
+  - '.'
+
+allowBuilds:
+  '@tailwindcss/oxide': true
+  esbuild: true
+  sharp: true
+
 ignoredBuiltDependencies:
   - esbuild
   - sharp
+
+minimumReleaseAgeExclude:
+  - astro@6.3.7 || 7.3.2
+  - '@astrojs/markdown-satteri@0.4.1'
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'

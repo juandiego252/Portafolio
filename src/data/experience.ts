@@ -1,6 +1,15 @@
 import type { IExperience } from "../types/experience.type";
 
 export const Experience: IExperience[] = [
+    // {
+    //     role: {
+    //         es: "Desarrollador FullStack",
+    //         en: "FullStack Developer"
+    //     },
+    //     aboutRole: {
+    //         en
+    //     }
+    // },
     {
         role: {
             en: "Software Development Intern",
