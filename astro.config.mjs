@@ -15,5 +15,5 @@ export default defineConfig({
     vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://www.juandiego.tech"
+  site: "https://juandiego.tech"
 });
